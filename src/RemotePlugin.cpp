@@ -6,6 +6,6 @@ bool RemoteManagementPlugin::InitializePlugin()
     const auto address = m_Settings["listenAddress"].toString("127.0.0.1");
     server = new QHttpServer(this);
     server->listen(QHostAddress(address), port);
-    processor.SetServer(server);
+    processor.Initialize(server, ConnectionManager());
     return true;
 }
